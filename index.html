@@ -6,13 +6,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="hero">
+      <img src="images/moon.png" id="icon">
+    </div>
     <div class="quote-box">
       <h2>Quote of the day</h2>
       <blockquote id="" quote>Loading...</blockquote>
       <span id="author"> Loading... </span>
       <div>
         <button onclick="getQuote(apiUrl)">New Quote</button>
-        <button onclick="tweet()"><img src="tweet.png" />Tweet</button>
+        <button onclick="tweet()"><img src="images/tweet.png" />Tweet</button>
       </div>
     </div>
 
@@ -32,6 +35,15 @@
 
       function tweet(){
         window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + '---- by' + author.innerHTML, 'Tweet Window', 'width=600, height=300')
+      }
+
+      // darktheme function
+      var icon=document.getElementById("icon");
+      icon.onclick=function(){
+        document.body.classList.toggle("dark-theme");
+        if(document.body.classList.contains("dark-theme")){
+          icon.src="images/sun.png";
+        }else {icon.src="images/moon.png";}
       }
     </script>
   </body>
